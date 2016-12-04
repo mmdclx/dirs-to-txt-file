@@ -16,6 +16,8 @@ test('get-all-dirs-recursively', t => {
       `${testDir}/folderA/folderAA`,
       `${testDir}/folderB`
     ])
+    t.end()
+  })
 
     t.end()
   })
