@@ -1,0 +1,24 @@
+{
+  "name": "directory-lister",
+  "version": "1.0.0",
+  "description": "node app that takes a root directory and will write out all directories to a txt file. Future scope to create git commits for each write, to be eventually used as an external hard-drive lister",
+  "main": "index.js",
+  "dependencies": {
+    "node-dir": "^0.1.16",
+    "pretty-print": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlot/directory-lister.git"
+  },
+  "author": "Mark C Mitchell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlot/directory-lister/issues"
+  },
+  "homepage": "https://github.com/zlot/directory-lister#readme"
+}
