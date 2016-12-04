@@ -4,7 +4,9 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = function getAllDirsRecursively(rootDir) {
-
+  if(typeof rootDir === 'undefined') {
+    throw new Error('Please provide a root directory.')
+  }
   let dirs = [];
 
   (function readDir(dir) {
