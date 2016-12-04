@@ -8,10 +8,11 @@
     "pretty-print": "^1.1.0"
   },
   "devDependencies": {
+    "faucet": "0.0.1",
     "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "node ./test/index.js"
+    "test": "node ./test/index.js | faucet"
   },
   "repository": {
     "type": "git",
