@@ -11,6 +11,9 @@ module.exports = function getAllDirsRecursively(rootDir, exclude) {
     if(!Array.isArray(exclude)) {
       throw new Error('exclude arg must be an array of strings to exclude from output')
     }
+    exclude = exclude.map(v => {
+      return new RegExp(v, 'i')
+    })
   }
 
   let dirs = [];
@@ -25,7 +28,7 @@ module.exports = function getAllDirsRecursively(rootDir, exclude) {
         let toExclude = false
         if(!isUndefined(exclude)) {
           toExclude = exclude.some(currVal => {
-            let result = file.search(new RegExp(currVal, 'i'))
+            let result = file.search(currVal)
             return result >= 0
           })
         }
