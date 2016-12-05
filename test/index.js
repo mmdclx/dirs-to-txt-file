@@ -4,57 +4,6 @@ const getDirs = require('get-dirs')
 
 const testDir = __dirname + '/testDirectory'
 
-test('get-all-dirs-recursively', t => {
-
-  t.test('it will return, in an array, only directories', t => {
-
-    const dirs = getAllDirsRecursively(testDir)
-
-    t.deepEqual(dirs, [
-      `${testDir}/folderA`,
-      `${testDir}/folderA/folderAA`,
-      `${testDir}/folderB`
-    ])
-    t.end()
-  })
-
-  t.test('it will throw an error if no root directory is given', t => {
-
-    t.throws(getAllDirsRecursively, Error)
-    t.end()
-  })
-
-  t.test('it will throw an error if root directory does not exist', t => {
-    try {
-      getAllDirsRecursively('./this_folder_does_not_exist')
-    } catch(ex) {
-      t.equal(ex.code, 'ENOENT')
-    }
-    t.end()
-  })
-
-  t.test('it will ignore any directories that match the naming passed to exclude arg', t => {
-    let excludeDir = ['folderAA']
-    let dirs = getAllDirsRecursively(testDir, excludeDir)
-    t.deepEqual(dirs, [
-      `${testDir}/folderA`,
-      `${testDir}/folderB`
-    ])
-
-    excludeDir = ['folderAA', 'folderB']
-    dirs = getAllDirsRecursively(testDir, excludeDir)
-    t.deepEqual(dirs, [
-      `${testDir}/folderA`
-    ])
-
-    excludeDir = ['fold']
-    dirs = getAllDirsRecursively(testDir, excludeDir)
-    t.deepEqual(dirs, [])
-
-    t.end()
-  })
-})
-
 test('write-array-to-txt-file', t => {
 
   const writeArrayToTxtFile = require('../write-array-to-txt-file')
