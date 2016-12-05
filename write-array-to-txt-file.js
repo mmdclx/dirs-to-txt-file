@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
-const getAllDirsRecursively = require('./getAllDirsRecursively')
 
-let dirs = getAllDirsRecursively(__dirname)
+module.exports = function writeArrayToTxtFile(array, txtFilePath, cb) {
 
-let ws = fs.createWriteStream(`${__dirname}/test.txt`)
+  let ws = fs.createWriteStream(txtFilePath)
 
-ws.on('end', () => {
-  console.log('ended writing stream')
-})
+  ws.on('finish', () => {
+    console.log(`Completed writing to txt file: ${txtFilePath}`)
+    cb(null)
+  })
 
-dirs.forEach(dir => {
-  ws.write(dir + '\n')
-})
-ws.end()
+  array.forEach(v => {
+    ws.write(`${v}\n`)
+  })
+  ws.end()
+
+}
