@@ -1,6 +1,6 @@
 const test = require('tape')
 const fs = require('fs')
-const getAllDirsRecursively = require('../get-all-dirs-recursively')
+const getDirs = require('get-dirs')
 
 const testDir = __dirname + '/testDirectory'
 
