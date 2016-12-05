@@ -1,5 +1,5 @@
 const test = require('tape')
-const getAllDirsRecursively = require('../getAllDirsRecursively')
+const getAllDirsRecursively = require('../get-all-dirs-recursively')
 
 
 test('get-all-dirs-recursively', t => {
