@@ -4,14 +4,15 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = function getAllDirsRecursively(rootDir, exclude) {
-  if(typeof rootDir === 'undefined') {
+  if(isUndefined(rootDir)) {
     throw new Error('Please provide a root directory.')
   }
-  if(typeof exclude !== 'undefined') {
+  if(!isUndefined(exclude)) {
     if(!Array.isArray(exclude)) {
       throw new Error('exclude arg must be an array of strings to exclude from output')
     }
   }
+
   let dirs = [];
 
   (function readDir(dir) {
@@ -22,7 +23,7 @@ module.exports = function getAllDirsRecursively(rootDir, exclude) {
     }).filter(file => {
       try {
         let toExclude = false
-        if(typeof exclude !== 'undefined') {
+        if(!isUndefined(exclude)) {
           toExclude = exclude.some(currVal => {
             let result = file.search(new RegExp(currVal, 'i'))
             return result >= 0
@@ -41,4 +42,8 @@ module.exports = function getAllDirsRecursively(rootDir, exclude) {
   })(rootDir)
 
   return dirs
+}
+
+function isUndefined(v) {
+  return typeof v === 'undefined'
 }
