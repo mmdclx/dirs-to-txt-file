@@ -33,6 +33,26 @@ test('get-all-dirs-recursively', t => {
     t.end()
   })
 
+  t.test('it will ignore any directories that match the naming passed to exclude arg', t => {
+    let excludeDir = ['folderAA']
+    let dirs = getAllDirsRecursively(testDir, excludeDir)
+    t.deepEqual(dirs, [
+      `${testDir}/folderA`,
+      `${testDir}/folderB`
+    ])
+
+    excludeDir = ['folderAA', 'folderB']
+    dirs = getAllDirsRecursively(testDir, excludeDir)
+    t.deepEqual(dirs, [
+      `${testDir}/folderA`
+    ])
+
+    excludeDir = ['fold']
+    dirs = getAllDirsRecursively(testDir, excludeDir)
+    t.deepEqual(dirs, [])
+
+    t.end()
+  })
 })
 
 test('write-array-to-txt-file', t => {
