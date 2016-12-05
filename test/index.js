@@ -55,4 +55,11 @@ test('write-array-to-txt-file', t => {
 
   })
 
+  t.test('it will populate txt file with given contents', t => {
+    writeArrayToTxtFile(['👍', '✅', '😛'], testFilePath, err => {
+      t.equal(fs.readFileSync(testFilePath, 'utf-8'), '👍\n✅\n😛\n')
+      fs.unlinkSync(testFilePath) // remove test file
+      t.end()
+    })
+  })
 })
