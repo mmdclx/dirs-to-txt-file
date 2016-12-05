@@ -25,4 +25,13 @@ test('get-all-dirs-recursively', t => {
     t.end()
   })
 
+  t.test('it will throw an error if root directory does not exist', t => {
+    try {
+      getAllDirsRecursively('./this_folder_does_not_exist')
+    } catch(ex) {
+      t.equal(ex.code, 'ENOENT', 'No such file or directory (POSIX.1)')
+    }
+    t.end()
+  })
+
 })
