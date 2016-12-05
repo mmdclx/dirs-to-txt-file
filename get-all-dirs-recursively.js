@@ -15,7 +15,11 @@ module.exports = function getAllDirsRecursively(rootDir) {
     files.map(file => {
       return path.join(dir, file)
     }).filter(file => {
-      return fs.statSync(file).isDirectory()
+      try {
+        return fs.statSync(file).isDirectory()
+      } catch(ex) {
+        return false
+      }
     }).forEach(foundDir => {
       dirs.push(foundDir)
       readDir(foundDir)
