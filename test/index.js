@@ -62,4 +62,15 @@ test('write-array-to-txt-file', t => {
       t.end()
     })
   })
+
+  t.test('it will override txt file with given name, if it does exist', t => {
+    writeArrayToTxtFile(['a','b','c'], testFilePath, err => {
+      writeArrayToTxtFile(['d', 'e', 'f'], testFilePath, err => {
+        t.equal(fs.readFileSync(testFilePath, 'utf-8'), 'd\ne\nf\n')
+        fs.unlinkSync(testFilePath) // remove test file
+        t.end()
+      })
+    })
+  })
+  
 })
