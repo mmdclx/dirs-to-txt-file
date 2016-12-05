@@ -1,11 +1,9 @@
 const test = require('tape')
 const getAllDirsRecursively = require('../get-all-dirs-recursively')
 
+const testDir = __dirname + '/testDirectory'
 
 test('get-all-dirs-recursively', t => {
-
-  const testDir = __dirname + '/testDirectory'
-
 
   t.test('it will return, in an array, only directories', t => {
 
