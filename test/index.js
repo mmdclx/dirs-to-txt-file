@@ -34,3 +34,25 @@ test('get-all-dirs-recursively', t => {
   })
 
 })
+
+test('write-array-to-txt-file', t => {
+
+  const writeArrayToTxtFile = require('../write-array-to-txt-file')
+  const testFilePath = __dirname + '/test.txt'
+
+  t.test('it creates a txt file with given name, if it does not exist', t => {
+
+    writeArrayToTxtFile(['a', 'b', 'c'], testFilePath, err => {
+      fs.access(testFilePath, err => {
+        if(err) {
+          console.error(err)
+          t.fail()
+        }
+        fs.unlinkSync(testFilePath) // remove test file
+        t.end()
+      })
+    })
+
+  })
+
+})
