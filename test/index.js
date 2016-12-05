@@ -28,7 +28,7 @@ test('get-all-dirs-recursively', t => {
     try {
       getAllDirsRecursively('./this_folder_does_not_exist')
     } catch(ex) {
-      t.equal(ex.code, 'ENOENT', 'No such file or directory (POSIX.1)')
+      t.equal(ex.code, 'ENOENT')
     }
     t.end()
   })
