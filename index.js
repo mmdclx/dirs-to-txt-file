@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 let argv = require('yargs')
-  .usage('Usage: $0 --rootdir path --writeto path --exclude string_match_or_regexp.\n\nYou can pass multiple exclusion criteria by using --exclude multiple times.')
+  .usage(`
+    Usage: $0 --rootdir path --writeto path
+
+    Notes:
+    You can pass multiple exclusion criteria by using --exclude multiple times.
+
+    If you want to exclude secret .dotfolders and node_modules/, use the --excludesecret flag.`)
   .demand(['rootdir', 'writeto'])
   .describe('exclude', 'a string match or literal RegExp (don\'t wrap in //)')
   .describe('excludesecret', 'exclude secret .dotfolders and node_modules/')
