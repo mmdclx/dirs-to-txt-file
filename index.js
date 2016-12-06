@@ -33,7 +33,11 @@ if(!isValid(argv.writeto)) {
   throw new Error('Your writeto is not a valid path!')
 }
 
-if(argv.exclude && !Array.isArray(argv.exclude)) {
+if(typeof argv.exclude === 'undefined') {
+  argv.exclude = []
+}
+
+if(!Array.isArray(argv.exclude)) {
   argv.exclude = [argv.exclude]
 }
 
