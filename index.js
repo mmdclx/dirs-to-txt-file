@@ -29,6 +29,11 @@ if(argv.exclude && !Array.isArray(argv.exclude)) {
   argv.exclude = [argv.exclude]
 }
 
+if(argv.excludesecret) {
+  argv.exclude.push(/^\.\w+|\/\./)
+  argv.exclude.push('node_modules')
+}
+
 let result = getDirs(argv.rootdir, argv.exclude)
 
 writeArrayToTxtFile(result, argv.writeto, () => {
