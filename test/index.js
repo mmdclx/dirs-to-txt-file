@@ -18,6 +18,7 @@ test('write-array-to-txt-file', t => {
           t.fail()
         }
         fs.unlinkSync(testFilePath) // remove test file
+        t.pass()
         t.end()
       })
     })
