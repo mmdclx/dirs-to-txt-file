@@ -16,7 +16,8 @@
   },
   "scripts": {
     "dev": "nodemon ./test/index.js -x 'npm test'",
-    "test": "node ./test/index.js | faucet"
+    "test": "node ./test/index.js | faucet",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
