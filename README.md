@@ -22,7 +22,7 @@ Options:
 
 ## Example
 
-    ./index.js --rootdir ./ --writeto output.txt
+    ./index.js --rootdir ./ --writeto output.txt --excludesecret
 
 Contents of output.txt:
 ```
