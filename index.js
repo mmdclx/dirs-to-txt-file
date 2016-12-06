@@ -2,6 +2,8 @@
 let argv = require('yargs')
   .usage('Usage: $0 --rootdir path --writeto path --exclude string_match_or_regexp.\n\nYou can pass multiple exclusion criteria by using --exclude multiple times.')
   .demand(['rootdir', 'writeto'])
+  .describe('exclude', 'a string match or literal RegExp (don\'t wrap in //)')
+  .describe('excludesecret', 'exclude secret .dotfolders and node_modules/')
   .coerce('exclude', arg => {
     if(Array.isArray(arg)) {
       arg.map(v => {
