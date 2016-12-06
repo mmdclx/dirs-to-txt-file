@@ -5,8 +5,11 @@ subdirectories to a text file, formatting each directory on a new line.
 
 Please note this app will override the file specified at --writeto.
 
+## Install
+    $ npm install -g dirs-to-txt-file
+
 ```
-Usage: ./index.js --rootdir path --writeto path/file.txt
+Usage: dirs-to-txt-file --rootdir path --writeto path/file.txt
 
 Notes:
 You can pass multiple exclusion criteria by using --exclude multiple times.
@@ -24,7 +27,7 @@ Options:
 
 ## Examples
 
-    ./index.js --rootdir ./ --writeto output.txt --excludesecret
+    dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret
 
 Contents of output.txt:
 ```
@@ -36,7 +39,7 @@ test/testDirectory/folderB
 ```
 ***
 
-    ./index.js --rootdir ./ --writeto output.txt --excludesecret --exclude "folderA"
+    dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret --exclude "folderA"
 
 Contents of output.txt:
 ```
