@@ -32,3 +32,13 @@ test/testDirectory/folderA
 test/testDirectory/folderA/folderAA
 test/testDirectory/folderB
 ```
+***
+
+    ./index.js --rootdir ./ --writeto output.txt --excludesecret --exclude "folderA"
+
+Contents of output.txt:
+```
+test
+test/testDirectory
+test/testDirectory/folderB
+```
