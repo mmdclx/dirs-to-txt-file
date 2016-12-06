@@ -9,7 +9,7 @@ let argv = require('yargs')
       })
       return arg
     } else {
-      return RegExp
+      return RegExp(arg)
     }
   })
   .argv
