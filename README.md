@@ -20,7 +20,7 @@ Options:
 
 ```
 
-## Example
+## Examples
 
     ./index.js --rootdir ./ --writeto output.txt --excludesecret
 
