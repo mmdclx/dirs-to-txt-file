@@ -25,11 +25,9 @@ if(!isValid(argv.writeto)) {
   throw new Error('Your writeto is not a valid path!')
 }
 
-console.log('argv.exclude: ', argv.exclude)
 if(argv.exclude && !Array.isArray(argv.exclude)) {
   argv.exclude = [argv.exclude]
 }
-//const exclusions = ['node_modules', /^\.\w+|\/\./]
 
 let result = getDirs(argv.rootdir, argv.exclude)
 
