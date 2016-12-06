@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 let argv = require('yargs')
   .usage(`
-    Usage: $0 --rootdir path --writeto path
+    Usage: $0 --rootdir path --writeto path/file.txt
 
     Notes:
     You can pass multiple exclusion criteria by using --exclude multiple times.
