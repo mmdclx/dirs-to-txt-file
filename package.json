@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "get-dirs": "^1.0.0",
+    "is-valid-path": "^0.1.1",
     "node-dir": "^0.1.16",
     "pretty-print": "^1.1.0",
     "yargs": "^6.5.0"
