@@ -19,3 +19,16 @@ Options:
   --writeto                                                           [required]
 
 ```
+
+## Example
+
+    ./index.js --rootdir ./ --writeto output.txt
+
+Contents of output.txt:
+```
+test
+test/testDirectory
+test/testDirectory/folderA
+test/testDirectory/folderA/folderAA
+test/testDirectory/folderB
+```
