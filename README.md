@@ -31,6 +31,7 @@ Options:
 
 Contents of output.txt:
 ```
+bin
 test
 test/testDirectory
 test/testDirectory/folderA
@@ -43,7 +44,12 @@ test/testDirectory/folderB
 
 Contents of output.txt:
 ```
+bin
 test
 test/testDirectory
 test/testDirectory/folderB
 ```
+
+## Unit tests
+
+    $ npm test
