@@ -5,7 +5,7 @@ subdirectories to a text file, formatting each directory on a new line.
 
 ```bash
 
-    Usage: index.js --rootdir path --writeto path/file.txt
+    Usage: ./index.js --rootdir path --writeto path/file.txt
 
     Notes:
     You can pass multiple exclusion criteria by using --exclude multiple times.
