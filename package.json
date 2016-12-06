@@ -22,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/zlot/directory-lister.git"
   },
-  "author": "Mark C Mitchell",
+  "author": "Mark C Mitchell <mark@markcmitchell.net> (http://markcmitchell.net)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zlot/directory-lister/issues"
