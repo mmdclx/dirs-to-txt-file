@@ -1,7 +1,7 @@
 {
   "name": "dirs-to-txt-file",
   "version": "1.1.0",
-  "description": "node app that takes a root directory and will write out all directories to a txt file. Future scope to create git commits for each write, to be eventually used as an external hard-drive lister",
+  "description": "cli app that takes in a root directory and writes out subdirectories to a txt file, formatting each dir on a new line.",
   "keywords": [
     "directories",
     "directory list",
