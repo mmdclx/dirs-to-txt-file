@@ -1,6 +1,6 @@
 {
   "name": "dirs-to-txt-file",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "cli app that takes in a root directory and writes out subdirectories to a txt file, formatting each dir on a new line.",
   "keywords": [
     "directories",
