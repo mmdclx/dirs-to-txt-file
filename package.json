@@ -13,7 +13,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "get-dirs": "^1.0.0",
+    "get-dirs": "^2.2.0",
     "is-valid-path": "^0.1.1",
     "through2": "^2.0.3",
     "yargs": "^6.5.0"
