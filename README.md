@@ -1,6 +1,6 @@
 # dirs-to-txt-file
 
-cli node app that takes in a root directory and will write out all 
+cli node app that takes in a root directory and will write out all
 subdirectories to a text file, formatting each directory on a new line.
 
 Please note this app will override the file specified at --writeto.
@@ -27,7 +27,7 @@ Options:
 
 ## Examples
 
-    dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret
+    $ dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret
 
 Contents of output.txt:
 ```
@@ -40,7 +40,7 @@ test/testDirectory/folderB
 ```
 ***
 
-    dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret --exclude "folderA"
+    $ dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret --exclude "folderA"
 
 Contents of output.txt:
 ```
