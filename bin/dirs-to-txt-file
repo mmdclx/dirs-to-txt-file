@@ -12,13 +12,9 @@ If you want to exclude secret .dotfolders and node_modules/, use the --excludese
   .describe('excludesecret', 'exclude secret .dotfolders and node_modules/')
   .coerce('exclude', arg => {
     if(Array.isArray(arg)) {
-      arg.map(v => {
-        return new RegExp(v)
-      })
-      return arg
-    } else {
-      return RegExp(arg)
+      return arg.map(v => new RegExp(v))
     }
+    return new RegExp(arg)
   })
   .argv
 
