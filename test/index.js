@@ -1,6 +1,5 @@
 const test = require('tape')
 const fs = require('fs')
-const getDirs = require('get-dirs')
 
 const testDir = __dirname + '/testDirectory'
 
