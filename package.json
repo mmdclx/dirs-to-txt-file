@@ -32,12 +32,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zlot/dirs-to-txt-file.git"
+    "url": "https://github.com/mmdclx/dirs-to-txt-file.git"
   },
-  "author": "Mark C Mitchell <mark@markcmitchell.net> (http://markcmitchell.net)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zlot/dirs-to-txt-file/issues"
-  },
-  "homepage": "https://github.com/zlot/dirs-to-txt-file#readme"
+  "homepage": "https://github.com/mmdclx/dirs-to-txt-file#readme"
 }
