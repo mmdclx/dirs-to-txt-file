@@ -41,5 +41,13 @@ test('write-array-to-txt-file', t => {
       })
     })
   })
-  
+
+  t.test('it reports an error if the path does not exist', t => {
+    const badFilePath = __dirname + '/does/not/exist/test.txt'
+    writeArrayToTxtFile(['x'], badFilePath, err => {
+      t.ok(err, 'expected error is passed to callback')
+      t.end()
+    })
+  })
+
 })
