@@ -85,3 +85,40 @@ test('CLI outputs CSV format', t => {
     t.end()
   })
 })
+
+test('CLI progress flag works without errors', t => {
+  const cliOut = path.join(__dirname, 'cli-progress.txt')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--progress'], err => {
+    t.error(err, 'cli executed without error')
+    t.ok(fs.existsSync(cliOut), 'output file created')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    t.ok(content.length > 0, 'has content')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
+
+test('CLI verbose flag works without errors', t => {
+  const cliOut = path.join(__dirname, 'cli-verbose.txt')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--verbose'], err => {
+    t.error(err, 'cli executed without error')
+    t.ok(fs.existsSync(cliOut), 'output file created')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    t.ok(content.length > 0, 'has content')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
+
+test('CLI progress works with different formats', t => {
+  const cliOut = path.join(__dirname, 'cli-progress-json.json')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--format', 'json', '--progress'], err => {
+    t.error(err, 'cli executed without error')
+    t.ok(fs.existsSync(cliOut), 'output file created')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    const json = JSON.parse(content)
+    t.ok(json.directories, 'has directories array')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
