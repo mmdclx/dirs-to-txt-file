@@ -44,27 +44,43 @@ test/testDirectory/folderA/folderAA
 test/testDirectory/folderB
 ```
 
-### JSON format for programmatic use
+### JSON format
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.json --format json
 ```
 
-### Tree format for visual hierarchy
+### Tree format
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.txt --format tree
 ```
 
-### Markdown format for documentation
+Output example:
+```
+# Directory Tree
+
+## Root: project
+
+├── src
+│   ├── components
+│   │   └── ui
+│   └── utils
+├── test
+│   └── fixtures
+└── docs
+    └── api
+```
+
+### Markdown format
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.md --format markdown
 ```
 
-### CSV format for analysis
+### CSV format
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.csv --format csv
 ```
 
-### With progress indication
+### Progress indicator
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.txt --progress
 ```
