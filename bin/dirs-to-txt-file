@@ -20,6 +20,10 @@ If you want to exclude secret .dotfolders and node_modules/, use the --excludese
   .describe('format', 'output format: txt, json, tree, csv, markdown')
   .choices('format', ['txt', 'json', 'tree', 'csv', 'markdown'])
   .default('format', 'txt')
+  .describe('progress', 'show progress during directory scanning')
+  .boolean('progress')
+  .describe('verbose', 'show detailed timing and performance information')
+  .boolean('verbose')
   .coerce('exclude', arg => {
     if(Array.isArray(arg)) {
       return arg.map(v => new RegExp(v))
@@ -51,5 +55,8 @@ if(argv.excludesecret) {
   argv.exclude.push('node_modules')
 }
 
-dirsToTxtFile(argv.rootdir, argv.writeto, argv.exclude, argv.format)
+dirsToTxtFile(argv.rootdir, argv.writeto, argv.exclude, argv.format, {
+  progress: argv.progress,
+  verbose: argv.verbose
+})
 
