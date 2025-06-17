@@ -11,24 +11,25 @@ npm install -g dirs-to-txt-file
 ## Usage
 
 ```bash
-dirs-to-txt-file --rootdir PATH --writeto FILE [--exclude PATTERN ...] [--excludesecret]
+dirs-to-txt-file --rootdir PATH --writeto FILE [--format FORMAT] [--exclude PATTERN ...] [--excludesecret]
 ```
 
 **Options**
 
 - `--rootdir` – directory to scan. *(required)*
 - `--writeto` – output file to create or replace. *(required)*
+- `--format` – output format: `txt`, `json`, `tree`, `csv`, `markdown`. *(default: txt)*
 - `--exclude` – string match or regex to ignore. Can be used multiple times.
 - `--excludesecret` – also exclude hidden `.dotfolders` and `node_modules/`.
 
-## Example
+## Examples
 
+### Basic text output (default)
 ```bash
 $ dirs-to-txt-file --rootdir ./ --writeto output.txt --excludesecret
 ```
 
 Contents of `output.txt`:
-
 ```
 bin
 test
@@ -36,6 +37,26 @@ test/testDirectory
 test/testDirectory/folderA
 test/testDirectory/folderA/folderAA
 test/testDirectory/folderB
+```
+
+### JSON format for programmatic use
+```bash
+$ dirs-to-txt-file --rootdir ./ --writeto output.json --format json
+```
+
+### Tree format for visual hierarchy
+```bash
+$ dirs-to-txt-file --rootdir ./ --writeto output.txt --format tree
+```
+
+### Markdown format for documentation
+```bash
+$ dirs-to-txt-file --rootdir ./ --writeto output.md --format markdown
+```
+
+### CSV format for analysis
+```bash
+$ dirs-to-txt-file --rootdir ./ --writeto output.csv --format csv
 ```
 
 ## Tests

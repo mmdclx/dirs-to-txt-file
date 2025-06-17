@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 let argv = require('yargs')
   .usage(`
-Usage: $0 --rootdir path --writeto path/file.txt
+Usage: $0 --rootdir path --writeto path/file.txt [--format FORMAT]
+
+Formats:
+  txt       Plain text, one directory per line (default)
+  json      Structured JSON with metadata
+  tree      Visual tree hierarchy with ASCII symbols
+  csv       Comma-separated values for analysis
+  markdown  Documentation-ready markdown format
 
 Notes:
 You can pass multiple exclusion criteria by using --exclude multiple times.
