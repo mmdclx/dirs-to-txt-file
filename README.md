@@ -14,15 +14,18 @@ npm install -g dirs-to-txt-file
 dirs-to-txt-file --rootdir PATH --writeto FILE [--format FORMAT] [--progress] [--verbose] [--exclude PATTERN ...] [--excludesecret]
 ```
 
-**Options**
+**Core Options**
 
 - `--rootdir` – directory to scan. *(required)*
 - `--writeto` – output file to create or replace. *(required)*
 - `--format` – output format: `txt`, `json`, `tree`, `csv`, `markdown`. *(default: txt)*
-- `--progress` – show progress during directory scanning
-- `--verbose` – show detailed timing and performance information
 - `--exclude` – string match or regex to ignore. Can be used multiple times.
 - `--excludesecret` – also exclude hidden `.dotfolders` and `node_modules/`.
+
+**Process Flags**
+
+- `--progress` – show progress during directory scanning
+- `--verbose` – show detailed timing and performance information
 
 ## Examples
 
