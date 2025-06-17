@@ -10,6 +10,9 @@ If you want to exclude secret .dotfolders and node_modules/, use the --excludese
   .demand(['rootdir', 'writeto'])
   .describe('exclude', 'a string match or literal RegExp (don\'t wrap in //)')
   .describe('excludesecret', 'exclude secret .dotfolders and node_modules/')
+  .describe('format', 'output format: txt, json, tree, csv, markdown')
+  .choices('format', ['txt', 'json', 'tree', 'csv', 'markdown'])
+  .default('format', 'txt')
   .coerce('exclude', arg => {
     if(Array.isArray(arg)) {
       return arg.map(v => new RegExp(v))
@@ -41,5 +44,5 @@ if(argv.excludesecret) {
   argv.exclude.push('node_modules')
 }
 
-dirsToTxtFile(argv.rootdir, argv.writeto, argv.exclude)
+dirsToTxtFile(argv.rootdir, argv.writeto, argv.exclude, argv.format)
 

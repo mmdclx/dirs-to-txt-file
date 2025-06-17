@@ -32,3 +32,56 @@ test('CLI fails for invalid rootdir', t => {
     t.end()
   })
 })
+
+test('CLI outputs JSON format', t => {
+  const cliOut = path.join(__dirname, 'cli-json.json')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--format', 'json'], err => {
+    t.error(err, 'cli executed without error')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    const json = JSON.parse(content)
+    t.ok(json.root, 'has root property')
+    t.ok(json.directories, 'has directories array')
+    t.ok(Array.isArray(json.directories), 'directories is array')
+    t.true(json.directories.length > 0, 'has directory entries')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
+
+test('CLI outputs Markdown format', t => {
+  const cliOut = path.join(__dirname, 'cli-markdown.md')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--format', 'markdown'], err => {
+    t.error(err, 'cli executed without error')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    t.ok(content.includes('# Directory Structure'), 'has markdown header')
+    t.ok(content.includes('**Root Directory:**'), 'has root directory section')
+    t.ok(content.includes('## Directories Found'), 'has directories section')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
+
+test('CLI outputs Tree format', t => {
+  const cliOut = path.join(__dirname, 'cli-tree.txt')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--format', 'tree'], err => {
+    t.error(err, 'cli executed without error')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    t.ok(content.includes('# Directory Tree'), 'has tree header')
+    t.ok(content.includes('├──') || content.includes('└──'), 'has tree symbols')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
+
+test('CLI outputs CSV format', t => {
+  const cliOut = path.join(__dirname, 'cli-csv.csv')
+  execFile('node', [cli, '--rootdir', testDir, '--writeto', cliOut, '--format', 'csv'], err => {
+    t.error(err, 'cli executed without error')
+    const content = fs.readFileSync(cliOut, 'utf-8')
+    t.ok(content.includes('Path,Relative Path,Depth,Name'), 'has CSV header')
+    const lines = content.trim().split('\n')
+    t.true(lines.length > 1, 'has data rows')
+    fs.unlinkSync(cliOut)
+    t.end()
+  })
+})
